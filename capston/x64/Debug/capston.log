@@ -1,0 +1,7 @@
+﻿  Game.cpp
+c:\users\cxl\source\repos\capston\capston\game.cpp(20): warning C4101: 'frame_duration': unreferenced local variable
+c:\users\cxl\source\repos\capston\capston\game.cpp(19): warning C4101: 'frame_end': unreferenced local variable
+c:\users\cxl\source\repos\capston\capston\game.cpp(18): warning C4101: 'frame_start': unreferenced local variable
+c:\users\cxl\source\repos\capston\capston\game.cpp(166): warning C4101: 'e': unreferenced local variable
+c:\users\cxl\source\repos\capston\capston\game.cpp(175): warning C4715: 'Game::bulletHitFighter': not all control paths return a value
+  capston.vcxproj -> C:\Users\cxl\source\repos\capston\x64\Debug\capston.exe
