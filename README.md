@@ -27,7 +27,7 @@ Renderer    --- render all the above information on the screen
 
 
 ## A little Conclusion
-From this tutorials I realy leaned a lot about SDL2 on game programming and c++ programming, though I admit the code has great space to optimization
-When I follow the totorial coding the shooter game, I find it is really interesting.
+From this tutorials I realy leaned a lot about SDL2 on game programming and C++ programming, though I admit the code has great space to optimize.
+When I follow the tutorial coding the shooter game, I found it really interesting.
 I think I will learn more about C++ and game programming after this course. 
 Thanks everybody on Udacity, I really enjoyed this course and benefited a lot. 
