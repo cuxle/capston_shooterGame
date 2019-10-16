@@ -84,7 +84,7 @@ Game::~Game()
 {
 	if (m_player) {
 		delete m_player;
-		m_player = nullpter;
+		m_player = nullptr;
 	}
 
 	for (auto item : m_player->m_bltFlying) {
