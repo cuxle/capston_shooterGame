@@ -4,6 +4,5 @@ class BulletFlying
 public:
 	BulletFlying();
 	~BulletFlying();
-
 };
 

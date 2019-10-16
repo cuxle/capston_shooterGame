@@ -40,18 +40,17 @@ void Game::Run(Controller &controller, Renderer &renderer,
 
 		//1. renderer:prepareScene renderer
 		renderer.prepareScene();
+
 		//2. controller: handleInput
-
 		controller.HandleInput(running, *m_player);
-		//2.1 update 
 
+		//2.1 update 
 		Update();
 
 		//3 render fighters
 		for (auto fighter : m_fighters) {
 			renderer.blit(fighter);
 		}
-
 
 		for (auto iter = m_player->m_bltFlying.begin(); iter != m_player->m_bltFlying.end(); iter++) {
 			renderer.blit(*iter);
@@ -78,41 +77,27 @@ void Game::Run(Controller &controller, Renderer &renderer,
 		if (frame_duration < target_frame_duration) {
 			SDL_Delay(target_frame_duration - frame_duration);
 		}
-#if 0
-
-		frame_start = SDL_GetTicks();
-
-		// Input, Update, Render - the main game loop.
-		controller.HandleInput(running, snake);
-		Update();
-		renderer.Render(snake, food);
-
-		frame_end = SDL_GetTicks();
-
-		// Keep track of how long each loop through the input/update/render cycle
-		// takes.
-		frame_count++;
-		frame_duration = frame_end - frame_start;
-
-		// After every second, update the window title.
-		if (frame_end - title_timestamp >= 1000) {
-			renderer.UpdateWindowTitle(score, frame_count);
-			frame_count = 0;
-			title_timestamp = frame_end;
-		}
-
-		// If the time for this frame is too small (i.e. frame_duration is
-		// smaller than the target ms_per_frame), delay the loop to
-		// achieve the correct frame rate.
-		if (frame_duration < target_frame_duration) {
-			SDL_Delay(target_frame_duration - frame_duration);
-		}
-#endif
 	}
 }
 
 Game::~Game()
 {
+	if (m_player) {
+		delete m_player;
+		m_player = nullpter;
+	}
+
+	for (auto item : m_player->m_bltFlying) {
+		if (item) {
+			delete item;
+		}		
+	}
+
+	for (auto item : m_fighters) {
+		if (item) {
+			delete item;
+		}
+	}
 }
 
 int Game::GetScore() const
