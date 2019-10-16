@@ -11,5 +11,9 @@ Plane::Plane(int x, int y, SIDE_PLAYER side) :
 
 Plane::~Plane()
 {
-
+	for (auto item : m_bltFlying) {
+		if (item) {
+			delete item;
+		}
+	}
 }

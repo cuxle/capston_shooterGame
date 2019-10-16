@@ -13,6 +13,11 @@ Entity::~Entity()
 
 }
 
+bool Entity::isFriend(Entity *ety)
+{
+	return m_side == ety->m_side;
+}
+
 void Entity::update()
 {
 	//1. update position

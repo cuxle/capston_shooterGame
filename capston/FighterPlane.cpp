@@ -4,7 +4,6 @@
 
 FighterPlane::FighterPlane(int x, int y) :
 	Plane(x, y, PLAYER),
-	m_bullet(new Bullet(x, y, PLAYER)),
 	m_fire(false),
 	m_reload(0)
 {
@@ -62,20 +61,21 @@ void FighterPlane::updatePlayer()
 
 void FighterPlane::fireBullet(void)
 {
-	Bullet *bullet = new Bullet(m_x, m_y, PLAYER);
-	m_bltFlying.push_back(bullet);
+	Bullet *bullet = new Bullet(m_x, m_y, PLAYER);	
 
 	bullet->m_dx = PLAYER_BULLET_SPEED;
-	bullet->setHealthy(1);
+	
+	bullet->m_texture = m_BulletTexture;
 
-	bullet->m_texture = m_bullet->m_texture;
 	SDL_QueryTexture(bullet->m_texture, NULL, NULL, &bullet->m_w, &bullet->m_h);
 
 	bullet->m_y += (m_h / 2) - (bullet->m_h / 2);
 
-	m_reload = 8;
+	bullet->setHealthy(1);
 
-	std::cout << "m_bltFlying size:" << m_bltFlying.size() << std::endl;
+	m_bltFlying.push_back(bullet);
+
+	m_reload = 8;
 }
 
 void FighterPlane::updateBullets()
@@ -94,4 +94,14 @@ void FighterPlane::updateBullets()
 		}
 	}
 
+}
+
+void FighterPlane::setPressValue(SDL_Scancode scanCode, int value)
+{
+	keyboard[scanCode] = value;
+}
+
+void FighterPlane::setBulletTexture(SDL_Texture *texTure)
+{
+	m_BulletTexture = texTure;
 }

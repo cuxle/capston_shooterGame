@@ -20,7 +20,7 @@ public:
 
 private:
 	FighterPlane *m_player;
-	AlienPlane m_enemy;
+
 	std::list<Entity*> m_fighters;
 	std::list<Bullet*> &m_bullets;
 	std::random_device dev;
@@ -30,12 +30,16 @@ private:
 
 	int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
 	bool bulletHitFighter(Entity *b);
-	int score{ 0 };
+	int m_score{ 0 };
 	void Update();
 	void doPlayer();
 	void doBullets();
 	void dofighters();
 	void spawnEnemies();
+	SDL_Texture *m_PlayerBulletTexture;
+	SDL_Texture *m_EnemyBulletTexture;
+	SDL_Texture *m_PlayerTexture;
+	SDL_Texture *m_EnemyTexture;
 	friend class Renderer;
 };
 

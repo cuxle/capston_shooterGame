@@ -12,9 +12,12 @@ public:
 	FighterPlane(int x, int y);
 	~FighterPlane();
 	virtual void update();
+	void setPressValue(SDL_Scancode scanCode, int value);
+	void setBulletTexture(SDL_Texture *texTure);
+private:
+	SDL_Texture *m_BulletTexture;
 	void updateBullets();
 	void updatePlayer();
-	Bullet *m_bullet;
 	bool m_fire;
 	int keyboard[MAX_KEYBOARD_KEYS];
 	int m_reload;

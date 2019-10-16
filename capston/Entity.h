@@ -12,6 +12,7 @@ public:
 	Entity(int x, int y, SIDE_PLAYER side);
 	virtual ~Entity();
 	virtual void update();
+	bool isFriend(Entity *side);
 	int m_x;
 	int m_y;
 	int m_up;
