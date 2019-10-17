@@ -1,20 +1,14 @@
 #pragma once
-#include "Entity.h"
-class Bullet : public Entity
+#include "battleobject.h"
+class Bullet : public BattleObject
 {
 public:
-	Bullet(int x, int y, SIDE_PLAYER side);
+	Bullet(int x, int y, int speed, int dadHeight, SDL_Texture * texture, SIDE_PLAYER side);
 	~Bullet();
 	virtual void update();
-
 	bool isOutOfBoarder();
 
-	bool isHealthy() const {
-		return health;
-	}
-
-	void setHealthy(int h) {
-		health = h;
-	}
-};
+private:
+	int m_traveledLength;
+}
 

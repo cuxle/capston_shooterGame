@@ -1,12 +1,14 @@
 #pragma once
-#include "Entity.h"
-class AlienPlane :	public Entity
+#include "battleobject.h"
+class AlienPlane :	public BattleObject
 {
 public:
-	AlienPlane(int x, int y);
+	AlienPlane(int x, int y, int speed, SDL_Texture * texture);
 	virtual ~AlienPlane();
 	virtual void update();
 	static int m_SpawnTimer;
+private:
+	int m_traveledLength;
 };
 
 //

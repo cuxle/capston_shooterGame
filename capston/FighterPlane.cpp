@@ -1,11 +1,10 @@
 #include "FighterPlane.h"
 
-
-
-FighterPlane::FighterPlane(int x, int y) :
-	Plane(x, y, PLAYER),
+FighterPlane::FighterPlane(int x, int y, SDL_Texture *texture, std::list<Bullet*> &bulletFlying) 
+	: BattleObject(x, y, 0, texture, PLAYER),
 	m_fire(false),
-	m_reload(0)
+	m_reload(0),
+	m_bltFlying(bulletFlying)
 {
 
 }
@@ -13,16 +12,11 @@ FighterPlane::FighterPlane(int x, int y) :
 
 FighterPlane::~FighterPlane()
 {
+
 }
 
 void FighterPlane::update()
 {	
-	updatePlayer();
-
-}
-
-void FighterPlane::updatePlayer()
-{
 	m_dx = m_dy = 0;
 
 	if (m_reload > 0)
@@ -61,33 +55,23 @@ void FighterPlane::updatePlayer()
 
 void FighterPlane::fireBullet(void)
 {
-	Bullet *bullet = new Bullet(m_x, m_y, PLAYER);	
+	Bullet *bullet = new Bullet(m_x, m_y, PLAYER_BULLET_SPEED, m_h, m_BulletTexture, PLAYER);
 
-	bullet->m_dx = PLAYER_BULLET_SPEED;
-	
-	bullet->m_texture = m_BulletTexture;
-
-	SDL_QueryTexture(bullet->m_texture, NULL, NULL, &bullet->m_w, &bullet->m_h);
-
-	bullet->m_y += (m_h / 2) - (bullet->m_h / 2);
-
-	bullet->setHealthy(1);
-
-	m_bltFlying.push_back(bullet);
+	m_bltFlying->push_back(bullet);
 
 	m_reload = 8;
 }
 
 void FighterPlane::updateBullets()
 {
-	auto iter = m_bltFlying.begin();
-	while (iter != m_bltFlying.end()) {
+	auto iter = m_bltFlying->begin();
+	while (iter != m_bltFlying->end()) {
 		(*iter)->m_x += (*iter)->m_dx;
 		(*iter)->m_y += (*iter)->m_dy;
 
  		if ((*iter)->m_x > SCREEN_WIDTH) {
 			delete *iter;
-			iter = m_bltFlying.erase(iter);
+			iter = m_bltFlying->erase(iter);
 		}
 		else {
 			iter++;
@@ -96,12 +80,12 @@ void FighterPlane::updateBullets()
 
 }
 
-void FighterPlane::setPressValue(SDL_Scancode scanCode, int value)
+void FighterPlane::setPressKeyValue(SDL_Scancode scanCode, int value)
 {
 	keyboard[scanCode] = value;
 }
 
-void FighterPlane::setBulletTexture(SDL_Texture *texTure)
+void FighterPlane::setBulletTexture(SDL_Texture * texture)
 {
-	m_BulletTexture = texTure;
+	m_BulletTexture = texture;
 }

@@ -1,13 +1,12 @@
 #include "Controller.h"
 #include "SDL.h"
-#include "entity.h"
 #include "defs.h"
 
 void Controller::doKeyUp(SDL_KeyboardEvent *event, FighterPlane &player)
 {
 	if (event->repeat == 0 && (event->keysym.scancode < MAX_KEYBOARD_KEYS))
 	{
-		player.setPressValue(event->keysym.scancode, 0);
+		player.setPressKeyValue(event->keysym.scancode, 0);
 	}
 }
 
@@ -15,7 +14,7 @@ void Controller::doKeyDown(SDL_KeyboardEvent *event, FighterPlane &player)
 {
 	if (event->repeat == 0 && (event->keysym.scancode < MAX_KEYBOARD_KEYS))
 	{
-		player.setPressValue(event->keysym.scancode, 1);
+		player.setPressKeyValue(event->keysym.scancode, 1);
 	}
 }
 
