@@ -1,4 +1,4 @@
-#This is a c++ version of a shooter game after I followed the steps on [a sdl2 beginner's tutorials](https://www.parallelrealities.co.uk/tutorials/)
+# This is a c++ version of a shooter game after I followed the steps on [a sdl2 beginner's tutorials](https://www.parallelrealities.co.uk/tutorials/)
 
 <img src="demo.gif">
 
@@ -20,14 +20,14 @@ Renderer    --- render all the above information on the screen
 * gcc/g++ >= 7.4.0
 
 ## Base Build Instructions
-1. Clone this repo
-2. Make a build directory in the top level directory: mkdir build && cd build
-3. Compile: cmake ..&& make
-4. Copy pic files in the build directory: cp ../gfx/* ./gfx/ -rf
-5. Run it : ./FightAliens
+1. Clone this repo and Enter the FightAliens Folder : `cd FightAliens`
+2. Make a build directory in the top level directory: `mkdir build && cd build`
+3. Compile: `cmake ..&& make`
+4. Copy pic files in the build directory: `cp ../gfx/* ./gfx/ -rf`
+5. Run it : `./shooterBattle`
 
-##2019.10.18 
-###refactoring
+## 2019.10.18 
+### refactoring
 1. Chagne Entity base Class to BattleObject Class.
 2. Change the Bullets Container from FighterPlane to the Game class.
 3. change build way from Visual Studio 2017 to ubuntu 18.04.
