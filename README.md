@@ -2,13 +2,13 @@
 
 <img src="demo.gif">
 
-## all classes
+## All Classes
 
 ```
 BattleObject   ---  a base class for all the objects on the screen, a bullet, a plane, a enemy plane ...
 FighterPlane --- the player's plane class
 AlienPlane  --- an enemy plane which represents the aliens
-Bullet      --- bullets fire from the player
+Bullet      --- bullets fired from the player
 Game        --- handle all the logic update the objects positions and other attributes, input, update, render 
 Controller  --- update the player's and alienPlane's position and bullets ...
 Renderer    --- render all the above information on the screen
@@ -27,8 +27,8 @@ Renderer    --- render all the above information on the screen
 5. Run it : `./shooterBattle`
 
 ## 2019.10.18 
-### refactoring
+### Refactoring
 1. Chagne Entity base Class to BattleObject Class.
 2. Change the Bullets Container from FighterPlane to the Game class.
-3. change build way from Visual Studio 2017 to ubuntu 18.04.
-Cause when I wan refactoring the code, I really found so many errors which I can not get a clue from my code in the Visual Studio 2017, so I changed the build system and framework.
+3. Change build way from `Visual Studio 2017` to `Ubuntu 18.04`.
+Cause when I was refactoring the code, I really found so many errors which I could not get a clue from my code in the Visual Studio 2017, so I changed the build system and framework to Ubuntu linux and using cmake now.
