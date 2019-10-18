@@ -5,29 +5,30 @@
 ## all classes
 
 ```
-Entity   ---  a base class for all the objects on the screen, a bullet, a plane, a enemy plane ...
-Plane    ---  a second base class for FighterPlane and AlinePlane
-FighterPlane --- the player's plane
+BattleObject   ---  a base class for all the objects on the screen, a bullet, a plane, a enemy plane ...
+FighterPlane --- the player's plane class
 AlienPlane  --- an enemy plane which represents the aliens
 Bullet      --- bullets fire from the player
-Game        --- handle all the logic update the objects positions and other attributes    
+Game        --- handle all the logic update the objects positions and other attributes, input, update, render 
 Controller  --- update the player's and alienPlane's position and bullets ...
 Renderer    --- render all the above information on the screen
 ```
 
 ## Dependencies for Running Locally
 * SDL2 >= 2.0
-* Only SDL2 x64 lib can run normally on my machine
-* Windows: recommend using Visual Studio 2017
+* cmake >= 3.10.2
+* gcc/g++ >= 7.4.0
 
 ## Base Build Instructions
-* Open the Project using Visual Studio 2017
-* Set the SDL2 library and headers correctly
-* Run the project
+1. Clone this repo
+2. Make a build directory in the top level directory: mkdir build && cd build
+3. Compile: cmake ..&& make
+4. Copy pic files in the build directory: cp ../gfx/* ./gfx/ -rf
+5. Run it : ./FightAliens
 
-
-## A little Conclusion
-From this tutorials I realy leaned a lot about SDL2 on game programming and C++ programming, though I admit the code has great space to optimize.
-When I follow the tutorial coding the shooter game, I found it really interesting.
-I think I will learn more about C++ and game programming after this course. 
-Thanks everybody on Udacity, I really enjoyed this course and benefited a lot. 
+##2019.10.18 
+###refactoring
+1. Chagne Entity base Class to BattleObject Class.
+2. Change the Bullets Container from FighterPlane to the Game class.
+3. change build way from Visual Studio 2017 to ubuntu 18.04.
+Cause when I wan refactoring the code, I really found so many errors which I can not get a clue from my code in the Visual Studio 2017, so I changed the build system and framework.
